@@ -1,89 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>KRNL remake</title>
-    <link rel="icon" href="KRNL.png" type="image/png">
-    <link rel="apple-touch-icon" href="KRNL.png">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<title>KRNL remake</title>
 
-        body, html {
-            height: 100%;
-            font-family: "Segoe UI", Tahoma, sans-serif;
-            color: white;
-            text-align: center;
-        }
+<link rel="icon" href="KRNL.png" type="image/png">
+<link rel="apple-touch-icon" href="KRNL.png">
 
-        body {
-            background: url("background.jpg") no-repeat center center fixed;
-            background-size: cover;
-        }
+<style>
+/* =========================
+   Reset
+========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        /* 導覽列 */
-        .navbar {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 15px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(0,0,0,0.5);
-            backdrop-filter: blur(5px);
-            z-index: 10;
-        }
+html, body {
+    height: 100%;
+    font-family: "Segoe UI", Tahoma, sans-serif;
+    color: white;
+}
 
-            .navbar h1 {
-                font-size: 20px;
-                font-weight: bold;
-                color: #fff;
-            }
+/* =========================
+   Background slideshow
+========================= */
+:root {
+    --bg-before: url("background1.jpg");
+    --bg-after: url("background2.jpg");
+    --before-opacity: 1;
+    --after-opacity: 0;
+}
 
-            .navbar ul {
-                list-style: none;
-                display: flex;
-                gap: 20px;
-            }
+body {
+    position: relative;
+    overflow-x: hidden;
+}
 
-                .navbar ul li a {
-                    text-decoration: none;
-                    font-size: 14px;
-                    color: #ddd;
-                    transition: color 0.3s ease;
-                }
+/* 背景層 */
+body::before,
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: opacity 1.5s ease-in-out;
+    z-index: -2;
+}
 
-                    .navbar ul li a:hover {
-                        color: #fff;
-                    }
+body::before {
+    background-image: var(--bg-before);
+    opacity: var(--before-opacity);
+}
 
-        /* Hero 區域 */
-        .hero {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background: rgba(0,0,0,0.4);
-            padding: 0 20px;
-        }
+body::after {
+    background-image: var(--bg-after);
+    opacity: var(--after-opacity);
+}
 
-            .hero h2 {
-                font-size: 48px;
-                margin-bottom: 20px;
-            }
+/* =========================
+   Navbar
+========================= */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(6px);
+    z-index: 10;
+}
 
-            .hero p {
-                font-size: 18px;
-                margin-bottom: 20px;
-                color: #ccc;
-            }
+.navbar h1 {
+    font-size: 20px;
+    font-weight: bold;
+}
 
-        /* 按鈕群組 */
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    font-size: 14px;
+    color: #ddd;
+    transition: color 0.3s;
+}
+
+.navbar ul li a:hover {
+    color: #fff;
+}
+
+/* =========================
+   Hero
+========================= */
+.hero {
+    min-height: 100vh;
+    padding-top: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: rgba(0,0,0,0.45);
+}
+
+.hero h2 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 18px;
+    color: #ccc;
+    margin-bottom: 10px;
+}
+
+ /* 按鈕群組 */
         .btn-group {
             display: flex;
             gap: 20px;
@@ -162,7 +203,10 @@
             transform: translateY(0);
         }
 
-        /* 特色卡片 */
+/* =========================
+   Features
+========================= */
+ /* 特色卡片 */
         .features {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -194,22 +238,24 @@
                 font-size: 14px;
                 color: #ddd;
             }
-    </style>
+</style>
 </head>
+
 <body>
-    <div class="navbar">
-        <h1>KRNL remake</h1>
-        <ul>
-            <li><a href="https://getalacrity.github.io/getsynapse-remake/ ">Synapse X</a></li>
-        </ul>
-    </div>
 
-    <div class="hero">
-        <h2>KRNL remake</h2>
-        <p>The ultimate scripting utility for Roblox</p>
-        <p>The remake was made by rty</p>
+<div class="navbar">
+    <h1>KRNL remake</h1>
+    <ul>
+        <li><a href="https://getalacrity.github.io/getsynapse-remake/">Synapse X</a></li>
+    </ul>
+</div>
 
-        <div class="btn-group">
+<div class="hero">
+    <h2>KRNL remake</h2>
+    <p>The ultimate scripting utility for Roblox</p>
+    <p>The remake was made by rty</p>
+
+    <div class="btn-group">
             <!-- Download Dropdown -->
             <div class="dropdown">
                 <a href="#" class="btn" id="downloadBtn">Download <span class="arrow">▼</span></a>
@@ -223,48 +269,72 @@
             <a href="https://discord.gg/3PwAy6Zy2D" class="btn">Join Discord</a>
         </div>
 
-        <!-- 特色卡片 -->
-        <div class="features">
-            <div class="card">
-                <h3>Powerful</h3>
-                <p>We has everything you need for development, analysis, and execution. Our API empowers scripts with capabilities not found elsewhere.</p>
-            </div>
-            <div class="card">
-                <h3>Lightweight</h3>
-                <p>KRNL is simple yet powerful. We give you the tools and let you play your way.</p>
-            </div>
-            <div class="card">
-                <h3>Stable</h3>
-                <p>Our well-tested execution engine ensures reliability and smooth operation.</p>
-            </div>
-            <div class="card">
-                <h3>Private</h3>
-                <p>KRNL collects no personal information aside from minimal payment data.</p>
-            </div>
+    <div class="features">
+        <div class="card">
+            <h3>Powerful</h3>
+            <p>We has everything you need for development, analysis, and execution. Our API empowers scripts with capabilities not found elsewhere.</p>
+        </div>
+        <div class="card">
+            <h3>Lightweight</h3>
+            <p>Our exploit is simple yet powerful. We give you the tools and let you play your way.</p>
+        </div>
+        <div class="card">
+            <h3>Stable</h3>
+            <p>Our well-tested execution engine ensures reliability and smooth operation.</p>
+        </div>
+        <div class="card">
+            <h3>Private</h3>
+            <p>Our exploit collects no personal information aside from minimal payment data.</p>
         </div>
     </div>
+</div>
 
-    <script>
-        const downloadBtn = document.getElementById('downloadBtn');
-        const dropdown = downloadBtn.parentElement;
+<script>
+/* =========================
+   Dropdown
+========================= */
+const downloadBtn = document.getElementById("downloadBtn");
+const dropdown = downloadBtn.parentElement;
 
-        downloadBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            dropdown.classList.toggle('show');
-        });
+downloadBtn.onclick = e => {
+    e.preventDefault();
+    dropdown.classList.toggle("show");
+};
 
-        window.addEventListener('click', function (e) {
-            if (!dropdown.contains(e.target)) {
-                dropdown.classList.remove('show');
-            }
-        });
-    </script>
+window.onclick = e => {
+    if (!dropdown.contains(e.target)) {
+        dropdown.classList.remove("show");
+    }
+};
+
+/* =========================
+   Background slideshow
+========================= */
+const images = [
+    "background1.jpg",
+    "background2.jpg",
+    "background3.jpg"
+];
+
+let index = 0;
+let toggle = true;
+
+setInterval(() => {
+    index = (index + 1) % images.length;
+
+    if (toggle) {
+        document.documentElement.style.setProperty("--bg-after", `url("${images[index]}")`);
+        document.documentElement.style.setProperty("--after-opacity", 1);
+        document.documentElement.style.setProperty("--before-opacity", 0);
+    } else {
+        document.documentElement.style.setProperty("--bg-before", `url("${images[index]}")`);
+        document.documentElement.style.setProperty("--before-opacity", 1);
+        document.documentElement.style.setProperty("--after-opacity", 0);
+    }
+
+    toggle = !toggle;
+}, 6000);
+</script>
+
 </body>
 </html>
-
-
-
-
-
-
-
