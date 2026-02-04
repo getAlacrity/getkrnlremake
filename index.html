@@ -1,8 +1,8 @@
-<!DOCTYPE html>
+幫我整個優化<!DOCTYPE html> 
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>KRNL remake</title>
+<title>Exploits remake</title>
 
 <link rel="icon" href="KRNL.png" type="image/png">
 <link rel="apple-touch-icon" href="KRNL.png">
@@ -140,8 +140,8 @@ body::after {
             font-size: 16px;
             color: white;
             text-decoration: none;
-            background: rgba(255,255,255,0.1);
-            border: 1px solid rgba(255,255,255,0.2);
+            background: rgba(0,20,20,.65);
+            border: 1px solid rgba(0,20,20,.65);
             backdrop-filter: blur(6px);
             transition: background 0.3s ease, transform 0.2s ease;
         }
@@ -216,8 +216,8 @@ body::after {
         }
 
         .card {
-            background: rgba(255,255,255,0.1);
-            border: 1px solid rgba(255,255,255,0.2);
+            background: rgba(20,20,20,.65);
+            border: 1px solid rgba(20,20,20,.65);
             backdrop-filter: blur(8px);
             border-radius: 10px;
             padding: 20px;
@@ -225,7 +225,7 @@ body::after {
         }
 
             .card:hover {
-                background: rgba(255,255,255,0.2);
+                background: rgba(255,255,255,.12);
                 transform: translateY(-5px);
             }
 
@@ -238,36 +238,213 @@ body::after {
                 font-size: 14px;
                 color: #ddd;
             }
+
+.download-grid {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 26px;
+    width: 720px;
+    max-width: 90%;
+}
+
+.app-card {
+    background: rgba(20,20,20,.65);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,.6);
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.app-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 40px rgba(0,0,0,.8);
+}
+
+/* 上半部 */
+.app-preview {
+    position: relative;
+    height: 150px;
+    overflow: visible;
+}
+
+.ui-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(1px) brightness(.85);
+}
+
+/* 中間 logo */
+.logo-img {
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    transform: translate(-50%, -50%);
+    width: 70px;
+    background: #222;
+    border-radius: 12px;
+    padding: 8px;
+    box-shadow: 0 6px 18px rgba(0,0,0,.7);
+}
+
+/* 下半部 */
+.app-info {
+    padding: 45px 18px 18px;
+    text-align: left;
+    background: linear-gradient(to bottom, rgba(20,20,20,.85), rgba(10,10,10,.95));
+}
+
+.app-info h3 {
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.app-info p {
+    font-size: 13px;
+    color: #ccc;
+    line-height: 1.4;
+}
+
+/* 按鈕 */
+.download-btn {
+    margin-top: 14px;
+    display: inline-block;
+    padding: 8px 14px;
+    border-radius: 8px;
+    background: rgba(255,255,255,.12);
+    border: 1px solid rgba(255,255,255,.25);
+    color: white;
+    text-decoration: none;
+    transition: background .2s ease, transform .2s ease;
+}
+
+.download-btn:hover {
+    background: rgba(255,255,255,.25);
+    transform: translateY(-2px);
+}
+
+
 </style>
 </head>
 
 <body>
 
 <div class="navbar">
-    <h1>KRNL remake</h1>
+    <h1>Exploits remake</h1>
     <ul>
         <li><a href="https://getalacrity.github.io/getsynapse-remake/">Synapse X</a></li>
     </ul>
 </div>
 
 <div class="hero">
-    <h2>KRNL remake</h2>
+    <h2>Exploits remake</h2>
     <p>The ultimate scripting utility for Roblox</p>
     <p>The remake was made by rty</p>
 
     <div class="btn-group">
-            <!-- Download Dropdown -->
-            <div class="dropdown">
-                <a href="#" class="btn" id="downloadBtn">Download <span class="arrow">▼</span></a>
-                <div class="dropdown-content" id="dropdownMenu">
-                    <a href="https://github.com/getAlacrity/downloads/raw/refs/heads/main/KRNL.zip">KRNL</a>
-                    <a href="https://github.com/getAlacrity/downloads/raw/refs/heads/main/Fluxus.zip">Fluxus</a>
-                    <a href="https://github.com/getAlacrity/downloads/raw/refs/heads/main/AWP-installer.exe">AWP.GG</a>
-                    <a href="https://github.com/getAlacrity/downloads/raw/refs/heads/main/rc7.zip">RC7</a>
-                </div>
-            </div>
-            <a href="https://discord.gg/3PwAy6Zy2D" class="btn">Join Discord</a>
+
+    <!-- Download Dropdown -->
+    <div class="dropdown">
+    <a href="https://discord.gg/3PwAy6Zy2D" class="btn">Join Discord</a>
+<div class="download-grid">
+
+ <div class="app-card">
+        <div class="app-preview">
+            <img class="ui-img" src="Synapse-ui.png">
+            <img class="logo-img" src="Synapse.png">
         </div>
+
+        <div class="app-info">
+            <h3>Synapse X</h3>
+            <p>
+                Synapse X is a remake of an powerful Roblox exploit known for its advanced interface,
+                1:1, very high quatily,useful options.
+            </p>
+
+            <a class="download-btn" href="https://github.com/getAlacrity/downloads/raw/refs/heads/main/KRNL.zip">
+                Download
+            </a>
+        </div>
+    </div>
+
+    <div class="app-card">
+        <div class="app-preview">
+            <img class="ui-img" src="KRNL-ui.png">
+            <img class="logo-img" src="KRNL.png">
+        </div>
+
+        <div class="app-info">
+            <h3>KRNL</h3>
+            <p>
+                KRNL is a remake of an basic Roblox exploit known for its interface,
+                smooth animations, fast injection.
+            </p>
+
+            <a class="download-btn" href="https://github.com/getAlacrity/downloads/raw/refs/heads/main/KRNL.zip">
+                Download
+            </a>
+        </div>
+    </div>
+
+     <div class="app-card">
+        <div class="app-preview">
+            <img class="ui-img" src="Fluxus-ui.png">
+            <img class="logo-img" src="Fluxus.png">
+        </div>
+
+        <div class="app-info">
+            <h3>Fluxus</h3>
+            <p>
+                Fluxus is a remake of an free Roblox exploit, mid quatily, Easy to use and some cool features that useful.
+            </p>
+
+            <a class="download-btn" href="https://github.com/getAlacrity/downloads/raw/refs/heads/main/Fluxus.zip">
+                Download
+            </a>
+        </div>
+    </div>
+
+     <div class="app-card">
+        <div class="app-preview">
+            <img class="ui-img" src="AWP-ui.png">
+            <img class="logo-img" src="AWP.png">
+        </div>
+
+        <div class="app-info">
+            <h3>AWP.GG</h3>
+            <p>
+                AWP.GG is a remake of an advanced premium Roblox exploit known for its advanced interface,
+                high quatily and Very good for using.
+            </p>
+
+            <a class="download-btn" href="https://github.com/getAlacrity/downloads/raw/refs/heads/main/AWP-installer.exe">
+                Download
+            </a>
+        </div>
+    </div>
+
+     <div class="app-card">
+        <div class="app-preview">
+            <img class="ui-img" src="rc7-ui.png">
+            <img class="logo-img" src="rc7.ico">
+        </div>
+
+        <div class="app-info">
+            <h3>rc7</h3>
+            <p>
+                rc7 is a remake of an old Roblox exploit known for its basic interface,
+                high compatibility with Lua scripts, and fast injection.
+            </p>
+
+            <a class="download-btn" href="https://github.com/getAlacrity/downloads/raw/refs/heads/main/rc7.zip">
+                Download
+            </a>
+        </div>
+    </div>
+</div>
+            <h3>Features</h3>
+</div>
 
     <div class="features">
         <div class="card">
