@@ -1,130 +1,89 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Exploits remake</title>
+    <meta charset="UTF-8">
+    <title>Alacrity - the best executor</title>
+    <link rel="icon" href="Alacrity.png" type="image/png">
+    <link rel="apple-touch-icon" href="Synapse_Icon.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<link rel="icon" href="KRNL.png" type="image/png">
-<link rel="apple-touch-icon" href="KRNL.png">
+        body, html {
+            height: 100%;
+            font-family: "Segoe UI", Tahoma, sans-serif;
+            color: white;
+            text-align: center;
+        }
 
-<style>
-/* =========================
-   Reset
-========================= */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+        body {
+            background: url("background.jpg") no-repeat center center fixed;
+            background-size: cover;
+        }
 
-html, body {
-    height: 100%;
-    font-family: "Segoe UI", Tahoma, sans-serif;
-    color: white;
-}
+        /* 導覽列 */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(5px);
+            z-index: 10;
+        }
 
-/* =========================
-   Background slideshow
-========================= */
-:root {
-    --bg-before: url("background1.jpg");
-    --bg-after: url("background2.jpg");
-    --before-opacity: 1;
-    --after-opacity: 0;
-}
+            .navbar h1 {
+                font-size: 20px;
+                font-weight: bold;
+                color: #fff;
+            }
 
-body {
-    position: relative;
-    overflow-x: hidden;
-}
+            .navbar ul {
+                list-style: none;
+                display: flex;
+                gap: 20px;
+            }
 
-/* 背景層 */
-body::before,
-body::after {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    transition: opacity 1.5s ease-in-out;
-    z-index: -2;
-}
+                .navbar ul li a {
+                    text-decoration: none;
+                    font-size: 14px;
+                    color: #ddd;
+                    transition: color 0.3s ease;
+                }
 
-body::before {
-    background-image: var(--bg-before);
-    opacity: var(--before-opacity);
-}
+                    .navbar ul li a:hover {
+                        color: #fff;
+                    }
 
-body::after {
-    background-image: var(--bg-after);
-    opacity: var(--after-opacity);
-}
+        /* Hero 區域 */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: rgba(0,0,0,0.4);
+            padding: 0 20px;
+        }
 
-/* =========================
-   Navbar
-========================= */
-.navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    padding: 15px 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: rgba(0,0,0,0.5);
-    backdrop-filter: blur(6px);
-    z-index: 10;
-}
+            .hero h2 {
+                font-size: 48px;
+                margin-bottom: 20px;
+            }
 
-.navbar h1 {
-    font-size: 20px;
-    font-weight: bold;
-}
+            .hero p {
+                font-size: 18px;
+                margin-bottom: 20px;
+                color: #ccc;
+            }
 
-.navbar ul {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-}
-
-.navbar ul li a {
-    text-decoration: none;
-    font-size: 14px;
-    color: #ddd;
-    transition: color 0.3s;
-}
-
-.navbar ul li a:hover {
-    color: #fff;
-}
-
-/* =========================
-   Hero
-========================= */
-.hero {
-    min-height: 100vh;
-    padding-top: 80px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background: rgba(0,0,0,0.45);
-}
-
-.hero h2 {
-    font-size: 48px;
-    margin-bottom: 20px;
-}
-
-.hero p {
-    font-size: 18px;
-    color: #ccc;
-    margin-bottom: 10px;
-}
-
- /* 按鈕群組 */
+        /* 按鈕群組 */
         .btn-group {
             display: flex;
             gap: 20px;
@@ -140,8 +99,8 @@ body::after {
             font-size: 16px;
             color: white;
             text-decoration: none;
-            background: rgba(0,20,20,.65);
-            border: 1px solid rgba(0,20,20,.65);
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
             backdrop-filter: blur(6px);
             transition: background 0.3s ease, transform 0.2s ease;
         }
@@ -203,10 +162,7 @@ body::after {
             transform: translateY(0);
         }
 
-/* =========================
-   Features
-========================= */
- /* 特色卡片 */
+        /* 特色卡片 */
         .features {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -216,8 +172,8 @@ body::after {
         }
 
         .card {
-            background: rgba(20,20,20,.65);
-            border: 1px solid rgba(20,20,20,.65);
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
             backdrop-filter: blur(8px);
             border-radius: 10px;
             padding: 20px;
@@ -225,7 +181,7 @@ body::after {
         }
 
             .card:hover {
-                background: rgba(255,255,255,.12);
+                background: rgba(255,255,255,0.2);
                 transform: translateY(-5px);
             }
 
@@ -238,301 +194,72 @@ body::after {
                 font-size: 14px;
                 color: #ddd;
             }
-
-.download-grid {
-    margin-top: 30px;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 26px;
-    width: 720px;
-    max-width: 90%;
-}
-
-.app-card {
-    background: rgba(20,20,20,.65);
-    border-radius: 14px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,.6);
-    transition: transform .25s ease, box-shadow .25s ease;
-}
-
-.app-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 16px 40px rgba(0,0,0,.8);
-}
-
-/* 上半部 */
-.app-preview {
-    position: relative;
-    height: 150px;
-    overflow: visible;
-}
-
-.ui-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: blur(1px) brightness(.85);
-}
-
-/* 中間 logo */
-.logo-img {
-    position: absolute;
-    left: 50%;
-    top: 100%;
-    transform: translate(-50%, -50%);
-    width: 70px;
-    background: #222;
-    border-radius: 12px;
-    padding: 8px;
-    box-shadow: 0 6px 18px rgba(0,0,0,.7);
-}
-
-/* 下半部 */
-.app-info {
-    padding: 45px 18px 18px;
-    text-align: left;
-    background: linear-gradient(to bottom, rgba(20,20,20,.85), rgba(10,10,10,.95));
-}
-
-.app-info h3 {
-    font-size: 18px;
-    margin-bottom: 8px;
-}
-
-.app-info p {
-    font-size: 13px;
-    color: #ccc;
-    line-height: 1.4;
-}
-
-/* 按鈕 */
-.download-btn {
-    margin-top: 14px;
-    display: inline-block;
-    padding: 8px 14px;
-    border-radius: 8px;
-    background: rgba(255,255,255,.12);
-    border: 1px solid rgba(255,255,255,.25);
-    color: white;
-    text-decoration: none;
-    transition: background .2s ease, transform .2s ease;
-}
-
-.download-btn:hover {
-    background: rgba(255,255,255,.25);
-    transform: translateY(-2px);
-}
-
-
-</style>
+    </style>
 </head>
-
 <body>
+    <div class="navbar">
+        <h1>Alacrity remakes</h1>
+        <ul>
+            <li><a href="https://getalacrity.github.io/">Alacrity</a></li>
+        </ul>
+    </div>
 
-<div class="navbar">
-    <h1>Exploits remake</h1>
-    <ul>
-        <li><a href="https://getalacrity.github.io/getsynapse-remake/">Synapse X</a></li>
-    </ul>
-</div>
+    <div class="hero">
+        <h2>Alacrity remakes</h2>
+        <p>The ultimate Executor remakes for Roblox</p>
+        <p>made by rty</p>
 
-<div class="hero">
-    <h2>Exploits remake</h2>
-    <p>The ultimate scripting utility for Roblox</p>
-    <p>The remake was made by rty</p>
-
-    <div class="btn-group">
-
-    <!-- Download Dropdown -->
-    <div class="dropdown">
-    <a href="https://discord.gg/3PwAy6Zy2D" class="btn">Join Discord</a>
-<div class="download-grid">
-
- <div class="app-card">
-        <div class="app-preview">
-            <img class="ui-img" src="Synapse-ui.png">
-            <img class="logo-img" src="Synapse.png">
+        <div class="btn-group">
+            <!-- Download Dropdown -->
+            <div class="dropdown">
+                <a href="#" class="btn" id="downloadBtn">Download <span class="arrow">▼</span></a>
+                <div class="dropdown-content" id="dropdownMenu">
+                    <a href="https://www.synapsex.dpdns.org/">Synapse X</a>
+                    <a href="https://github.com/getAlacrity/downloads/raw/refs/heads/main/Script-Ware.zip">Script-Ware</a>
+                    <a href="https://github.com/getAlacrity/downloads/raw/refs/heads/main/KRNL.zip">KRNL</a>
+                    <a href="https://github.com/getAlacrity/downloads/raw/refs/heads/main/Awp-installer.exe">Awp</a>
+                    <a href="https://github.com/getAlacrity/downloads/raw/refs/heads/main/Fluxus.zip">Fluxus</a>
+                    <a href="https://github.com/getAlacrity/downloads/raw/refs/heads/main/rc7.zip">rc7</a>
+                </div>
+            </div>
+            <a href="https://discord.gg/3PwAy6Zy2D" class="btn">Join Discord</a>
         </div>
 
-        <div class="app-info">
-            <h3>Synapse X</h3>
-            <p>
-                Synapse X is a remake of an powerful Roblox exploit known for its advanced interface,
-                1:1, very high quatily,useful options.
-            </p>
-
-            <a class="download-btn" href="https://github.com/getAlacrity/downloads/raw/refs/heads/main/Synapse%20Bootstrapper.exe">
-                Download
-            </a>
+        <!-- 特色卡片 -->
+        <div class="features">
+            <div class="card">
+                <h3>High Performance</h3>
+                <p>Optimized for speed and stability to ensure smooth scripting execution.</p>
+            </div>
+            <div class="card">
+                <h3>Wide Compatibility</h3>
+                <p>Supports a variety of scripts with frequent updates for the latest Roblox versions.</p>
+            </div>
+            <div class="card">
+                <h3>User Friendly</h3>
+                <p>Simple and intuitive design, making it easy for anyone to use.</p>
+            </div>
+            <div class="card">
+                <h3>Secure</h3>
+                <p>Advanced protection features to keep your environment safe.</p>
+            </div>
         </div>
     </div>
 
-     <div class="app-card">
-        <div class="app-preview">
-            <img class="ui-img" src="Script-Ware-ui.png">
-            <img class="logo-img" src="Script-Ware.png">
-        </div>
+    <script>
+        const downloadBtn = document.getElementById('downloadBtn');
+        const dropdown = downloadBtn.parentElement;
 
-        <div class="app-info">
-            <h3>Script-Ware</h3>
-            <p>
-                Script-Ware is a remake of an nice premium Roblox exploit known for its very cool interface,
-                high quatily and kind for using.
-            </p>
+        downloadBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            dropdown.classList.toggle('show');
+        });
 
-            <a class="download-btn" href="https://github.com/getAlacrity/downloads/raw/refs/heads/main/Script-Ware.zip">
-                Download
-            </a>
-        </div>
-    </div>
-
-    <div class="app-card">
-        <div class="app-preview">
-            <img class="ui-img" src="KRNL-ui.png">
-            <img class="logo-img" src="KRNL.png">
-        </div>
-
-        <div class="app-info">
-            <h3>KRNL</h3>
-            <p>
-                KRNL is a remake of an basic Roblox exploit known for its interface,
-                smooth animations, fast injection.
-            </p>
-
-            <a class="download-btn" href="https://github.com/getAlacrity/downloads/raw/refs/heads/main/KRNL.zip">
-                Download
-            </a>
-        </div>
-    </div>
-
-     <div class="app-card">
-        <div class="app-preview">
-            <img class="ui-img" src="AWP-ui.png">
-            <img class="logo-img" src="AWP.png">
-        </div>
-
-        <div class="app-info">
-            <h3>AWP.GG</h3>
-            <p>
-                AWP.GG is a remake of an advanced premium Roblox exploit known for its advanced interface,
-                high quatily and Very good for using.
-            </p>
-
-            <a class="download-btn" href="https://github.com/getAlacrity/downloads/raw/refs/heads/main/Awp-installer.exe">
-                Download
-            </a>
-        </div>
-    </div>
-
-     <div class="app-card">
-        <div class="app-preview">
-            <img class="ui-img" src="Fluxus-ui.png">
-            <img class="logo-img" src="Fluxus.png">
-        </div>
-
-        <div class="app-info">
-            <h3>Fluxus</h3>
-            <p>
-                Fluxus is a remake of an free Roblox exploit, mid quatily, Easy to use and some cool features that useful.
-            </p>
-
-            <a class="download-btn" href="https://github.com/getAlacrity/downloads/raw/refs/heads/main/Fluxus.zip">
-                Download
-            </a>
-        </div>
-    </div>
-
-     <div class="app-card">
-        <div class="app-preview">
-            <img class="ui-img" src="rc7-ui.png">
-            <img class="logo-img" src="rc7.ico">
-        </div>
-
-        <div class="app-info">
-            <h3>rc7</h3>
-            <p>
-                rc7 is a remake of an old Roblox exploit known for its basic interface,
-                high compatibility with Lua scripts, and fast injection.
-            </p>
-
-            <a class="download-btn" href="https://github.com/getAlacrity/downloads/raw/refs/heads/main/rc7.zip">
-                Download
-            </a>
-        </div>
-    </div>
-</div>
-            <h3>Features</h3>
-</div>
-
-    <div class="features">
-        <div class="card">
-            <h3>Powerful</h3>
-            <p>We has everything you need for development, analysis, and execution. Our API empowers scripts with capabilities not found elsewhere.</p>
-        </div>
-        <div class="card">
-            <h3>Lightweight</h3>
-            <p>Our exploit is simple yet powerful. We give you the tools and let you play your way.</p>
-        </div>
-        <div class="card">
-            <h3>Stable</h3>
-            <p>Our well-tested execution engine ensures reliability and smooth operation.</p>
-        </div>
-        <div class="card">
-            <h3>Private</h3>
-            <p>Our exploit collects no personal information aside from minimal payment data.</p>
-        </div>
-    </div>
-</div>
-
-<script>
-/* =========================
-   Dropdown
-========================= */
-const downloadBtn = document.getElementById("downloadBtn");
-const dropdown = downloadBtn.parentElement;
-
-downloadBtn.onclick = e => {
-    e.preventDefault();
-    dropdown.classList.toggle("show");
-};
-
-window.onclick = e => {
-    if (!dropdown.contains(e.target)) {
-        dropdown.classList.remove("show");
-    }
-};
-
-/* =========================
-   Background slideshow
-========================= */
-const images = [
-    "background1.jpg",
-    "background2.jpg",
-    "background3.jpg"
-];
-
-let index = 0;
-let toggle = true;
-
-setInterval(() => {
-    index = (index + 1) % images.length;
-
-    if (toggle) {
-        document.documentElement.style.setProperty("--bg-after", `url("${images[index]}")`);
-        document.documentElement.style.setProperty("--after-opacity", 1);
-        document.documentElement.style.setProperty("--before-opacity", 0);
-    } else {
-        document.documentElement.style.setProperty("--bg-before", `url("${images[index]}")`);
-        document.documentElement.style.setProperty("--before-opacity", 1);
-        document.documentElement.style.setProperty("--after-opacity", 0);
-    }
-
-    toggle = !toggle;
-}, 6000);
-</script>
-
+        window.addEventListener('click', function (e) {
+            if (!dropdown.contains(e.target)) {
+                dropdown.classList.remove('show');
+            }
+        });
+    </script>
 </body>
 </html>
-
-
